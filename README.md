@@ -18,3 +18,15 @@ Follow these steps to get the project running locally:
 ```bash
 git clone https://github.com/yourusername/progress-bar-with-percentage.git
 cd multi-step-form
+
+### 2. Install dependencies
+Make sure you have Node.js installed. Then, run:
+```bash
+npm install
+
+### 3.Run the development server
+Start the development server with:
+```bash
+npm start
+
+
