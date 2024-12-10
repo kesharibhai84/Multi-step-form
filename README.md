@@ -34,10 +34,7 @@ This will open the application in your browser (usually at http://localhost:3000
 
 ![Screenshot (4)](https://github.com/user-attachments/assets/095501bc-1b6d-4ca8-888f-01f5e957678b)
 ![Screenshot (5)](https://github.com/user-attachments/assets/89c56deb-aa88-4b9c-8970-576c397d9ece)
-![Screenshot (6)](https://github.com/user-attachments/assets/7d47ca3e-1f71-4117-8a4d-1b25cf585db4)
 ![Screenshot (7)](https://github.com/user-attachments/assets/635ad5ae-cb4c-4c59-b413-56b3d4ad0476)
-![Screenshot (8)](https://github.com/user-attachments/assets/92226bd3-0e79-4f1c-bbab-74a311c4fdd8)
-![Screenshot (9)](https://github.com/user-attachments/assets/36baec27-45b5-4dfc-8401-d749340e40aa)
 ![Screenshot (10)](https://github.com/user-attachments/assets/cb3129b7-0f06-4bba-88ff-e9a23a342250)
 ![Screenshot (11)](https://github.com/user-attachments/assets/b8f85930-df15-4046-b798-c192eb218a46)
 ![Screenshot (12)](https://github.com/user-attachments/assets/38d6d931-b497-4682-ab43-b8bfd58bab8d)
