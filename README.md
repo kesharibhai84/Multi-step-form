@@ -20,7 +20,7 @@ git clone https://github.com/yourusername/progress-bar-with-percentage.git
 cd multi-step-form
 
 ### 2. Install dependencies
-Make sure you have Node.js installed. Then, run:
+
 ```bash
 npm install
 
