@@ -17,4 +17,4 @@ Follow these steps to get the project running locally:
 
 ```bash
 git clone https://github.com/yourusername/progress-bar-with-percentage.git
-cd progress-bar-with-percentage
+cd multi-step-form
