@@ -131,7 +131,7 @@ const App = () => {
 
         {/* Project Name */}
         <h1 className="text-2xl font-bold text-center mb-6">
-          SmartForm Wizard
+          SmartForm
         </h1>
 
         {/* Progress Bar */}
