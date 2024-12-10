@@ -1,6 +1,3 @@
-![Screenshot 2024-12-10 215244](https://github.com/user-attachments/assets/d85e4f98-3487-4ff9-af5b-a22b399f7ad1)
-![Screenshot 2024-12-10 215536](https://github.com/user-attachments/assets/3d8e1b87-35b0-4497-875b-54ac291803af)
-![Screenshot 2024-12-10 215244](https://github.com/user-attachments/assets/e29b06c3-7c2d-4ef0-8d9b-2fc2b6b17bd1)
 # Multi-step Form - Progress Bar with Percentage
 
 This is a simple React project that implements a progress bar with a dynamic percentage display based on a given step. It allows you to visualize the progress of a multi-step process with an intuitive progress bar and an actual percentage shown above it.
