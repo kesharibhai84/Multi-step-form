@@ -121,11 +121,13 @@ A multi-step user registration form built with React.js and styled using Tailwin
 2. **Step 2: Address Details**
    ![Screenshot 2024-12-10 215536](https://github.com/user-attachments/assets/99cecaef-b8d8-49ec-93fb-a8fabd932f4c)
 ![Screenshot (11)](https://github.com/user-attachments/assets/b8f85930-df15-4046-b798-c192eb218a46)
+![image](https://github.com/user-attachments/assets/98dd9edc-13d7-4ec1-8ec8-5b6fbde8353b)
 
-3. **Step 3: Preferences**
+
+4. **Step 3: Preferences**
   ![Screenshot (12)](https://github.com/user-attachments/assets/38d6d931-b497-4682-ab43-b8bfd58bab8d)
 
-4. **Step 4: Review and Submit**
+5. **Step 4: Review and Submit**
   ![Screenshot (13)](https://github.com/user-attachments/assets/86493874-5944-4114-bcdc-2fcca362c509)
 ![Screenshot (14)](https://github.com/user-attachments/assets/d4a6efa9-8f17-4bd6-ab6f-8b3ac90a8329)
 
