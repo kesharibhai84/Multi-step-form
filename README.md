@@ -41,7 +41,8 @@ A multi-step user registration form built with React.js and styled using Tailwin
 ### Bonus Features
 - **Dark Mode:** Toggle between light and dark modes.
 - **Autofill:** Autofill form based on previously entered user data.
-
+- **Captcha:** Add a CAPTCHA-like feature for spam prevention.
+  
 ## Installation and Setup
 
 1. Clone the repository:
