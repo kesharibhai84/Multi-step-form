@@ -1,11 +1,24 @@
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Step4 = ({ formData, prevStep, handleSubmit, darkMode }) => {
   const [isSubmitted, setIsSubmitted] = useState(false); // State to track submission
+  const [captchaVerified, setCaptchaVerified] = useState(false); // State for reCAPTCHA
+
+  // Handle the reCAPTCHA verification
+  const handleCaptchaChange = (value) => {
+    if (value) {
+      setCaptchaVerified(true); // Set to true if captcha is verified
+    }
+  };
 
   const handleFinalSubmit = () => {
-    handleSubmit(); // Call the existing submit function
-    setIsSubmitted(true); // Set submitted state to true
+    if (captchaVerified) {
+      handleSubmit(); // Call the existing submit function
+      setIsSubmitted(true); // Set submitted state to true
+    } else {
+      alert("Please complete the CAPTCHA to submit the form.");
+    }
   };
 
   return (
@@ -37,6 +50,14 @@ const Step4 = ({ formData, prevStep, handleSubmit, darkMode }) => {
             <h3 className="font-bold">Preferences:</h3>
             <p>Preferred Language: {formData.language}</p>
             <p>Receive Notifications: {formData.notifications ? "Yes" : "No"}</p>
+          </div>
+
+          {/* reCAPTCHA */}
+          <div className="mb-4">
+            <ReCAPTCHA
+              sitekey="6LfUyJgqAAAAACadhrQI3-gWk00_sd3P0ivU-0lA" // Replace with your actual reCAPTCHA site key
+              onChange={handleCaptchaChange}
+            />
           </div>
 
           <div className="flex justify-between mt-4">
