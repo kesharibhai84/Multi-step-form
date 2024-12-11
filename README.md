@@ -101,7 +101,7 @@ A multi-step user registration form built with React.js and styled using Tailwin
    Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
 
-## Project is live at `[https://multi-stageform.netlify.app/](https://multi-stageform.netlify.app/)`.
+## Project is live at [https://multi-stageform.netlify.app/](https://multi-stageform.netlify.app/)
 
 
 ## Technologies Used
