@@ -130,6 +130,7 @@ A multi-step user registration form built with React.js and styled using Tailwin
 
 5. **Step 4: Review and Submit**
   ![image](https://github.com/user-attachments/assets/303271fe-ad61-4e08-bd9a-eaeb3214efc9)
+  ![image](https://github.com/user-attachments/assets/cf0b3a7d-1c02-418d-9b0b-8483c8c37cb1)
   ![image](https://github.com/user-attachments/assets/211a243f-be43-49c6-a258-c487e36f8557)
   ![Screenshot (14)](https://github.com/user-attachments/assets/d4a6efa9-8f17-4bd6-ab6f-8b3ac90a8329)
 
