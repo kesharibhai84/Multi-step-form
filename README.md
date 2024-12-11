@@ -15,6 +15,7 @@ Follow these steps to get the project running locally:
 ### 1. Clone the repository
 
 git clone https://github.com/yourusername/progress-bar-with-percentage.git
+
 cd multi-step-form
 
 ### 2. Install dependencies
