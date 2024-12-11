@@ -67,6 +67,7 @@ A multi-step user registration form built with React.js and styled using Tailwin
    - Configure `tailwind.config.js`:
      ```javascript
      module.exports = {
+       darkMode: 'class',
        content: ["./src/**/*.{js,jsx,ts,tsx}"],
        theme: {
          extend: {},
