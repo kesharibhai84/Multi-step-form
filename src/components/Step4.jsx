@@ -1,18 +1,30 @@
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Step4 = ({ formData, prevStep, handleSubmit, darkMode }) => {
   const [isSubmitted, setIsSubmitted] = useState(false); // State to track submission
+  const [captchaVerified, setCaptchaVerified] = useState(false); // State for reCAPTCHA
+
+  // Handle the reCAPTCHA verification
+  const handleCaptchaChange = (value) => {
+    if (value) {
+      setCaptchaVerified(true); // Set to true if captcha is verified
+    }
+  };
 
   const handleFinalSubmit = () => {
-    handleSubmit(); // Call the existing submit function
-    setIsSubmitted(true); // Set submitted state to true
+    if (captchaVerified) {
+      handleSubmit(); // Call the existing submit function
+      setIsSubmitted(true); // Set submitted state to true
+    } else {
+      alert("Please complete the CAPTCHA to submit the form.");
+    }
   };
 
   return (
     <div
-      className={`p-4 shadow-md rounded-lg transition-colors duration-300 ${
-        darkMode ? "bg-gray-700 text-white" : "bg-white text-black"
-      }`}
+      className={`p-4 shadow-md rounded-lg transition-colors duration-300 ${darkMode ? "bg-gray-700 text-white" : "bg-white text-black"
+        }`}
     >
       {!isSubmitted ? (
         <>
@@ -39,23 +51,29 @@ const Step4 = ({ formData, prevStep, handleSubmit, darkMode }) => {
             <p>Receive Notifications: {formData.notifications ? "Yes" : "No"}</p>
           </div>
 
+          {/* reCAPTCHA */}
+          <div className="mb-4">
+            <ReCAPTCHA
+              sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} // Use the environment variable
+              onChange={handleCaptchaChange}
+            />
+          </div>
+
           <div className="flex justify-between mt-4">
             <button
-              className={`px-4 py-2 rounded transition-colors duration-300 ${
-                darkMode
+              className={`px-4 py-2 rounded transition-colors duration-300 ${darkMode
                   ? "bg-gray-600 hover:bg-gray-700 text-white"
                   : "bg-gray-500 hover:bg-gray-600 text-white"
-              }`}
+                }`}
               onClick={prevStep}
             >
               Go Back & Edit
             </button>
             <button
-              className={`px-4 py-2 rounded transition-colors duration-300 ${
-                darkMode
+              className={`px-4 py-2 rounded transition-colors duration-300 ${darkMode
                   ? "bg-green-600 hover:bg-green-700 text-white"
                   : "bg-green-500 hover:bg-green-600 text-white"
-              }`}
+                }`}
               onClick={handleFinalSubmit}
             >
               Submit
