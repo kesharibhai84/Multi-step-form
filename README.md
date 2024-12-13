@@ -115,14 +115,19 @@ A multi-step user registration form built with React.js and styled using Tailwin
 1. **Step 1: Personal Information**
  ![Screenshot (4)](https://github.com/user-attachments/assets/095501bc-1b6d-4ca8-888f-01f5e957678b)
 ![Screenshot (5)](https://github.com/user-attachments/assets/89c56deb-aa88-4b9c-8970-576c397d9ece)
+![image](https://github.com/user-attachments/assets/5d6fc1de-b02a-4e58-acec-5bbceaed54ee)
+![image](https://github.com/user-attachments/assets/65f5ee86-5238-410e-bba4-daea7212fc22)
 ![Screenshot (7)](https://github.com/user-attachments/assets/635ad5ae-cb4c-4c59-b413-56b3d4ad0476)
 ![Screenshot 2024-12-10 215244](https://github.com/user-attachments/assets/36025210-d87c-4ccf-9e46-68dedce89c40)
 ![Screenshot (10)](https://github.com/user-attachments/assets/cb3129b7-0f06-4bba-88ff-e9a23a342250)
 
-2. **Step 2: Address Details**
+3. **Step 2: Address Details**
    ![Screenshot 2024-12-10 215536](https://github.com/user-attachments/assets/99cecaef-b8d8-49ec-93fb-a8fabd932f4c)
 ![Screenshot (11)](https://github.com/user-attachments/assets/b8f85930-df15-4046-b798-c192eb218a46)
 ![image](https://github.com/user-attachments/assets/98dd9edc-13d7-4ec1-8ec8-5b6fbde8353b)
+
+  **If i relaoded the page in between** 
+  ![image](https://github.com/user-attachments/assets/27d45f40-4a84-4d85-a1e2-da37929e651b)
 
 
 4. **Step 3: Preferences**
