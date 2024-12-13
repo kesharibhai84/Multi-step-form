@@ -75,9 +75,24 @@ const Step1 = ({ formData, setFormData, nextStep, darkMode }) => {
     };
 
     const handleSuggestionClick = (suggestion) => {
-        setFormData({ ...formData, email: suggestion });
+        setFormData((prevData) => {
+            const updatedData = { ...prevData, email: suggestion };
+            const newErrors = { ...errors };
+    
+            // Immediately validate the email after selection
+            if (!emailRegex.test(updatedData.email)) {
+                newErrors.email = "Invalid email format.";
+            } else {
+                delete newErrors.email;
+            }
+    
+            setErrors(newErrors); // Update errors dynamically
+            return updatedData;
+        });
+    
         setEmailSuggestions([]); // Hide suggestions after selection
     };
+    
 
     const handleNext = () => {
         const validationErrors = validate();
