@@ -30,8 +30,21 @@ const Step1 = ({ formData, setFormData, nextStep, darkMode }) => {
         const email = e.target.value;
         setFormData({ ...formData, email });
 
+        // Real-time validation
+        if (email && !emailRegex.test(email)) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                email: "Invalid email format.",
+            }));
+        } else {
+            setErrors((prevErrors) => {
+                const { email, ...rest } = prevErrors;
+                return rest; // Remove email error if valid
+            });
+        }
+
         // Check if email contains '@' and suggest known domains
-        const atIndex = email.indexOf('@');
+        const atIndex = email.indexOf("@");
         if (atIndex !== -1) {
             const domainPart = email.slice(atIndex + 1);
             const filteredDomains = knownDomains
@@ -40,6 +53,24 @@ const Step1 = ({ formData, setFormData, nextStep, darkMode }) => {
             setEmailSuggestions(filteredDomains);
         } else {
             setEmailSuggestions([]); // Clear suggestions if '@' is not found
+        }
+    };
+
+    const handlePhoneChange = (e) => {
+        const phone = e.target.value;
+        setFormData({ ...formData, phone });
+
+        // Real-time validation
+        if (phone && !phoneRegex.test(phone)) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                phone: "Phone number must be 10 digits.",
+            }));
+        } else {
+            setErrors((prevErrors) => {
+                const { phone, ...rest } = prevErrors;
+                return rest; // Remove phone error if valid
+            });
         }
     };
 
@@ -103,7 +134,7 @@ const Step1 = ({ formData, setFormData, nextStep, darkMode }) => {
                 type="tel"
                 placeholder="Phone"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={handlePhoneChange}
                 title="Please enter 10 digits for your phone number"
             />
             <p className="text-red-500">{errors.phone}</p>
