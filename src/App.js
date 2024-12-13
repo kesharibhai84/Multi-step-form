@@ -24,13 +24,27 @@ const App = () => {
         };
   });
 
-  const [step, setStep] = useState(1);
-  const [darkMode, setDarkMode] = useState(false);
+  const [step, setStep] = useState(() => {
+    const savedStep = localStorage.getItem("currentStep");
+    return savedStep ? parseInt(savedStep, 10) : 1;
+  });
+
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
+    return savedDarkMode !== null ? savedDarkMode : false; // Default to light mode if no value is saved
+  });
+  const [showContinueModal, setShowContinueModal] = useState(false);
 
   useEffect(() => {
     const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
     if (savedDarkMode !== null) {
       setDarkMode(savedDarkMode);
+    }
+
+    const savedData = localStorage.getItem("formData");
+    const savedStep = localStorage.getItem("currentStep");
+    if (savedData && savedStep) {
+      setShowContinueModal(true);
     }
   }, []);
 
@@ -41,6 +55,10 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(formData));
   }, [formData]);
+
+  useEffect(() => {
+    localStorage.setItem("currentStep", step);
+  }, [step]);
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -59,6 +77,7 @@ const App = () => {
         if (response.ok) {
           alert("Form submitted successfully!");
           localStorage.removeItem("formData");
+          localStorage.removeItem("currentStep");
           setFormData({
             name: "",
             email: "",
@@ -83,34 +102,79 @@ const App = () => {
     setDarkMode(!darkMode);
   };
 
+  const handleContinue = () => {
+    setShowContinueModal(false);
+  };
+
+  const handleRestart = () => {
+    localStorage.removeItem("formData");
+    localStorage.removeItem("currentStep");
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      address1: "",
+      address2: "",
+      city: "",
+      state: "",
+      zip: "",
+      language: "",
+      notifications: false,
+    });
+    setStep(1);
+    setShowContinueModal(false);
+  };
+
   return (
     <div
       className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
         darkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
       }`}
     >
-      
+      {showContinueModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div
+            className={`p-6 rounded-lg shadow-lg transition-colors duration-300 ${
+              darkMode ? "bg-gray-700 text-white" : "bg-white text-black"
+            }`}
+          >
+            <h2 className="text-lg font-bold mb-4">Continue or Restart?</h2>
+            <p className="mb-4">You have unsaved progress. Would you like to continue from where you left off or restart the form?</p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={handleRestart}
+                className="px-4 py-2 bg-red-500 text-white rounded shadow hover:bg-red-600 transition-colors"
+              >
+                Restart
+              </button>
+              <button
+                onClick={handleContinue}
+                className="px-4 py-2 bg-green-500 text-white rounded shadow hover:bg-green-600 transition-colors"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div
         className={`w-full max-w-lg p-8 rounded-lg shadow-lg transition-colors duration-300 ${
           darkMode ? "bg-gray-700" : "bg-white"
         }`}
       >
-        
-        {/* Dark Mode Toggle Button */}
         <button
           onClick={toggleDarkMode}
           className="absolute top-4 right-4 p-2 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-300"
           aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
           {darkMode ? (
-            // Moon icon for dark mode
             <div className="w-6 h-6 flex items-center justify-center">
               <div className="w-4 h-4 rounded-full border-2 border-white bg-transparent relative overflow-hidden">
                 <div className="absolute inset-0 bg-white rounded-full -right-1/2"></div>
               </div>
             </div>
           ) : (
-            // Sun icon for light mode
             <div className="w-6 h-6 flex items-center justify-center">
               <div className="w-4 h-4 rounded-full bg-white relative">
                 {[...Array(8)].map((_, i) => (
@@ -129,15 +193,10 @@ const App = () => {
           )}
         </button>
 
-        {/* Project Name */}
-        <h1 className="text-2xl font-bold text-center mb-6">
-          SmartForm
-        </h1>
+        <h1 className="text-2xl font-bold text-center mb-6">SmartForm</h1>
 
-        {/* Progress Bar */}
         <ProgressBar step={step} darkMode={darkMode} />
 
-        {/* Steps */}
         <div
           className={`transition-all duration-500 ease-in-out ${
             step === 1 ? "" : "opacity-0 pointer-events-none"
